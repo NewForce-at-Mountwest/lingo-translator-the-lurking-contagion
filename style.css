@@ -4,6 +4,7 @@
 }
 .cena:hover{
     font:bold;
-    font-size:5em;
+    font-size:4em;
     color:gold;
+    text-transform: uppercase;
 }
