@@ -1,3 +1,10 @@
+#mandarinTitle{
+    text-align: center;
+}
+
+#mandrin-list-1{
+    list-style-type: none;
+}
 .cena:hover{
     color: gold;
     font-weight: bold;
