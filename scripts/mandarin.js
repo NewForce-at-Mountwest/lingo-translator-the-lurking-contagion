@@ -42,14 +42,13 @@ const mandarinData =  {
 
 
 
-// here is the start of ym code for the mandarin page for the DOM to print to
 const mandarinHTMLcontainer = document.querySelector("#language-container")
 
 
-MandarinMainHeaderString = `<h1 id = mandarinTitle>Mandarin</h1>`
-MandarinPeopleHeaderString = `<h4 id = mandarinPeople>Mandarin People</h4>`
-MandarinFunFactsHeaderString = `<h4 id = mandarinFunFacts>Fun Facts!</h4>`
-MandarinCountriesSpokenString = `<h4 id = mandarinCountriesSpoken>Countries that use Mandarin</h4>`
+MandarinMainHeaderString = `<h1 id = "mandarinTitle">Mandarin</h1>`
+MandarinPeopleHeaderString = `<h4 id = "mandarinPeople">Mandarin People</h4>`
+MandarinFunFactsHeaderString = `<h4 id = "mandarinFunFacts">Fun Facts!</h4>`
+MandarinCountriesSpokenString = `<h4 id = "mandarinCountriesSpoken">Countries that use Mandarin</h4>`
 
 //  build people loop
 const mandarinPeopleLoop = function (){
@@ -139,7 +138,7 @@ const MandarinColumn =
           <h6>Dialect Info:</h6>
           <ul class = "mandrin-list-4">${mandarinData.MandarinfunFacts.mandrinInfo.dialectInfo}</ul>
           <h6>Chinese Dialects:</h6>
-          <ul class = :mandrin-list-5">${chineseDialectsloop()}</ul>
+          <ul class = "mandrin-list-5">${chineseDialectsloop()}</ul>
 
         </div>
 
