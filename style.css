@@ -1,3 +1,14 @@
+.cena:hover{
+    color: gold;
+    font-weight: bold;
+    font-size: 4em;
+    text-transform: uppercase;
+}
+.french-info{
+    font-family: Helvetica, sans-serif;
+    font-size: 12pt;
+    font-weight: normal;
+}
 /* center header text */
 #hindi-main-header{
     text-align: center;
@@ -20,10 +31,3 @@ ul{
     display:flex;
     justify-content:center;
 }
-.cena:hover{
-    font:bold;
-    font-size:4em;
-    color:gold;
-    text-transform: uppercase;
-}
-
