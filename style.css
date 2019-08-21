@@ -1,0 +1,9 @@
+#title{
+    display:flex;
+    justify-content:center;
+}
+.cena:hover{
+    font:bold;
+    font-size:5em;
+    color:gold;
+}
