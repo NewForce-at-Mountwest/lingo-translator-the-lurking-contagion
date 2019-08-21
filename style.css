@@ -5,3 +5,12 @@
 #mandrin-list-1{
     list-style-type: none;
 }
+#title{
+    display:flex;
+    justify-content:center;
+}
+.cena:hover{
+    font:bold;
+    font-size:5em;
+    color:gold;
+}
