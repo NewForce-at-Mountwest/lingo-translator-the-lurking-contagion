@@ -9,3 +9,7 @@
     font-size: 12pt;
     font-weight: normal;
 }
+#title{
+    display:flex;
+    justify-content:center;
+}
