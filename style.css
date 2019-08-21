@@ -1,0 +1,11 @@
+.cena:hover{
+    color: gold;
+    font-weight: bold;
+    font-size: 4em;
+    text-transform: uppercase;
+}
+.french-info{
+    font-family: Helvetica, sans-serif;
+    font-size: 12pt;
+    font-weight: normal;
+}
