@@ -1,3 +1,21 @@
+/* center header text */
+#hindi-main-header{
+    text-align: center;
+    padding: 2em
+}
+
+/* remove bullet points */
+ul{
+    list-style-type: none;
+}
+
+/* put translate into flex box */
+#translator-section{
+    display: flex;
+    justify-content: center;
+    padding: 1em
+}
+
 #title{
     display:flex;
     justify-content:center;
@@ -8,3 +26,4 @@
     color:gold;
     text-transform: uppercase;
 }
+
