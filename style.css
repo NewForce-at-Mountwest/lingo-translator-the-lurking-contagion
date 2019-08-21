@@ -16,3 +16,12 @@ ul{
     padding: 1em
 }
 
+#title{
+    display:flex;
+    justify-content:center;
+}
+.cena:hover{
+    font:bold;
+    font-size:5em;
+    color:gold;
+}
