@@ -54,15 +54,28 @@ const frenchData = {
 // querySelector navbar item and add function and event listener to navbar item
 const frenchNav = document.querySelector("#french")
 frenchBodyHTML=
-  `<h1 id="french-title">${frenchData.name}</h1>
-  <h4 id="french-people-header">Notable People</h4>
+  `<div class="french-container">
+  <h1 id="french-title">Français</h1>
+  <div class="row french-row">
+  <div class="col-sm">
+  <button id="french-people-header">Notable People</button>
   <ul id="french-people"></ul>
-  <h4 id="french-funFacts-header">Fun Facts</h4>
+  </div>
+  <div class="col-sm">
+  <button id="french-funFacts-header">Fun Facts</button>
   <ul id="french-funFacts"></ul>
-  <h4 id="french-countries-header">Countries<h4>
+  </div>
+  <div class="col-sm">
+  <button id="french-countries-header">Countries</button>
   <ul id="french-countries"></ul>
-  <h4 id="french-translator-header">Translator</h4>
-  <section id="french-translator"></section>`
+  </div>
+  </div>
+  </div>
+  <div id="french-translatorSection">
+  <button id="french-translator-header">Translator</button>
+  <section id="french-translator"></section>
+  </div>`
+
 
 const langContainer=document.querySelector("#language-container")
 frenchNav.addEventListener("click",function(){
@@ -103,7 +116,7 @@ langContainer.addEventListener("click",function(){
     }
   }
 })
-// translator NOT WORKING
+// translator
 langContainer.addEventListener("click",function(){
   const translator = document.querySelector("#french-translator")
   if (event.target.id==="french-translator-header" && translator.innerHTML === ""){
@@ -119,18 +132,19 @@ langContainer.addEventListener("click",function(){
   langContainer.addEventListener("click",function(){
     const frenchTextField = document.querySelector("#french-text")
     if (event.target.id === "french-translate"){
-      for (i=0;i<frenchData.dictionary.key;i++){
-        if(french-Text.value===frenchData.dictionary.key[i]){
-          alert("i might be able to do that!")
+      
+        if(frenchData["dictionary"][`${frenchTextField.value}`]!=null){
+          alert(`${frenchData["dictionary"][`${frenchTextField.value}`]}`)
+
         } else{alert("I don't know that word, sorry.")}
-      }
         // clear text field here
         frenchTextField.value = ""
-    }})
-
+      }
+    }
+)
 // say john cena NOT WORKING 
 // const jCenaFrench = document.querySelector("frenchData.notablePeople[3]")
 langContainer.addEventListener("click",function(){
-  if(event.target.classList===frenchData.notablePeople[3]){
+  if(event.target.classList.contains("cena")){
   speechSynthesis.speak(new SpeechSynthesisUtterance('John Cena loves you'))}
 })
