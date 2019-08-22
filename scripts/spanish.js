@@ -105,6 +105,8 @@ const Collumn = `
 
 </div>
 <h5>Translator</h5>
+<audio src="speechSynthesis.speak(new SpeechSynthesisUtterance('Hey'))
+"></audio>
 <input id="input" type="text">
 <button id="submit" type="submit">Submit</button>
 <section id="section"></section>`
