@@ -188,15 +188,15 @@ mandarinContainer.addEventListener("click", function(){
   }
 })
 // this one is for the fun facts!
-mandarinContainer.addEventListener("click", function(){
-  if(event.target.id === "mandarinFunFacts"){
-    console.log("this is a button for fun facts")
-  }
-})
+// mandarinContainer.addEventListener("click", function(){
+//   if(event.target.id === "mandarinFunFacts"){
+//     document.querySelector("#mandarin-fun-facts").innerHTML=MandarinFunFactsLoop()
+//   }
+// })
 // this one is for the countries spoken!
 mandarinContainer.addEventListener("click", function(){
   if(event.target.id === "mandarinCountriesSpoken"){
-    console.log("this is a button for countries spoken")
+    document.querySelector("#mandarin-spoken").innerHTML=mandarinCountriesLoop()
   }
 })
 
