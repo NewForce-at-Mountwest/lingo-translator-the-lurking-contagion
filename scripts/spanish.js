@@ -47,9 +47,9 @@ const spanishData = {
     }
   };
 
-const SpanishHeadersPeople = `<h4>Notable People</h4>`
-const SpanishHeadersFunFacts = `<h4>FunFacts</h4>`
-const SpanishHeadersCountries = `<h4>Countries Spoken</h4>`
+const SpanishHeadersPeople = `<button id= "peopletitle">Notable People</button><ul id= "peoplelist"></ul>`
+const SpanishHeadersFunFacts = `<button id= "funfactstitle">FunFacts</button><ul id ="funfactslist"></ul>`
+const SpanishHeadersCountries = `<button id="countriestitle">Countries Spoken</button><ul id="countrieslist"</ul>`
 function notablePeople(){
   var peoplearray=""
   for(var i=0;i<spanishData.notablePeople.length;i++){
@@ -78,35 +78,69 @@ for(var i=0;i<spanishData.funFacts.relatedLanguages.length;i++){
 }
 return relatedLanguages
 }
-const Collumn = `
-<h1 id = "title">Spanish</h1>
-<div class="container">
-<div class="row">
-  <div id= "spanishcollumn1" class="col-sm">
-  ${SpanishHeadersPeople}
-   <ul>${notablePeople()}</ul>
-  </div>
-  <div id = "spanishcollumn2" class="col-sm">
-  ${SpanishHeadersFunFacts}
+function funfactfunction(){
+  var funfactstring = `
  <h5>Related Languages</h5>
  <ul>${relatedLanguages()}</ul>
  <h5>The Number of letters in the Alphabet</h5>
  <li>${spanishData.funFacts.lettersInAlphabet}</li>
  <h5>The Number of People who speak Spanish</h5>
  <li>${spanishData.funFacts.numberOfSpeakers}</li>
+  </div>`
+  return funfactstring
+}
+const Collumn = `
+<h1 id = "title">Spanish</h1>
+<div class="container">
+<div class="row">
+  <div id= "spanishcollumn1" class="col-sm">
+  ${SpanishHeadersPeople}
+  </div>
+  <div id = "spanishcollumn2" class="col-sm">
+  ${SpanishHeadersFunFacts}
   </div>
   <div id = "spanishcollumn3" class="col-sm">
   ${SpanishHeadersCountries}
-  <ul>${countriesSpoken()}</ul>
   </div>
+
 </div>
-</div>
-<textarea name="translator" id="translator" cols="30" rows="10"></textarea>`
+<h5>Translator</h5>
+<input id="input" type="text">
+<button id="submit" type="submit">Submit</button>
+<section id="section"></section>`
+
+
 const Spanish = document.querySelector("#spanish")
 const Spanishcontainer = document.querySelector("#language-container")
 Spanish.addEventListener("click", function (){
   Spanishcontainer.innerHTML = Collumn
 })
+Spanishcontainer.addEventListener("click",function(){
+  if (event.target.id === "countriestitle"){
+
+  document.querySelector("#countrieslist").innerHTML= countriesSpoken()
+}})
+Spanishcontainer.addEventListener("click",function(){
+  if (event.target.id === "funfactstitle"){
+
+  document.querySelector("#funfactslist").innerHTML= funfactfunction()
+}})
+Spanishcontainer.addEventListener("click",function(){
+  if (event.target.id === "peopletitle"){
+
+  document.querySelector("#peoplelist").innerHTML= notablePeople()
+}})
+
+Spanishcontainer.addEventListener("click", function (){
+  const translaterInput = document.querySelector("#input")
+  if (event.target.id === "submit"){
+    if(spanishData["dictionary"][`${translaterInput.value}`]!=null){alert(`${spanishData["dictionary"][`${translaterInput.value}`]}`)
+  }else{alert("Word Unknown")}
+  translaterInput.value=""
+}
+})
+// console.log(spanishData["dictionary"]["hello"])
+
 
 
 //   ${spanishData.countriesSpoken}
