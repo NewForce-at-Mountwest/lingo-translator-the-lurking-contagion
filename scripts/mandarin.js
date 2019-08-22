@@ -40,13 +40,30 @@ const mandarinData =  {
   }
 }
 
+// we grabbing the language container 
+
 
 const mandarinHTMLcontainer = document.querySelector("#language-container")
 
-MandarinMainHeaderString = `<h1 id="mandarinTitle">Mandarin</h1>`
-MandarinPeopleHeaderString = `<h4 id="mandarinPeople">Mandarin People</h4>`
-MandarinFunFactsHeaderString = `<h4 id="mandarinFunFacts">Fun Facts!</h4>`
-MandarinCountriesSpokenString = `<h4 id="mandarinCountriesSpoken">Countries that use Mandarin</h4>`
+
+
+// here are all the individual titles and headings
+
+
+const MandarinMainHeaderString = `<h3 id="mandarinTitle">Mandarin</h3>`
+const MandarinPeopleHeaderString = `<button id="mandarinPeopleButton">People Who Speak Mandarin</button> 
+<ul id="mandarin-people-list"></ul>`
+const MandarinFunFactsHeaderString = `<button id="mandarinFunFacts">Fun Facts!</button>
+<ul id="mandarin-fun-facts"></ul>`
+const MandarinCountriesSpokenString = `<button id="mandarinCountriesSpoken">Countries that use Mandarin</button>
+<ul id="mandarin-spoken"></ul>`
+
+// event listeners for the buttons
+
+const mandarinContainer = document.querySelector("#language-container")
+
+
+
 
 //  build people loop
 const mandarinPeopleLoop = function (){
@@ -56,42 +73,51 @@ for(let i =0; i < mandarinData.mandarinPeople.length; i ++ ){
 }
 return mandarinPeopleString
 }
+// build Dialect loop
+//chinese dialects loop
+// this is where the chinese dialects part is hard coded 
+const chineseDialectsloop = function(){
+  var chineseDialectsString = ""
+  
+  for(let i =0; i < mandarinData.MandarinfunFacts.mandrinInfo.chineseDialects.length; i++ ){
+     
+    
+    chineseDialectsString +=`<li> 
+     ${mandarinData.MandarinfunFacts.mandrinInfo.chineseDialects[i]}</li>`
+  }
+  return chineseDialectsString
+  
+  }
 
-// this is the fun facts stuff
+
+
+// this is the fun facts loop
+// this is where all the fun facts are hard coded 
 const MandarinFunFactsLoop = function (){
 var relatedLanguagesString = ""
+
 for(let i =0; i < mandarinData.MandarinfunFacts.relatedLanguages.length; i ++ ){
-   relatedLanguagesString += `<li>${mandarinData.MandarinfunFacts.relatedLanguages[i]}`
+  headerstring = `<h5>Related Languages</h5>`
+  headerstringtwo = `<h5>Chinese Dialects</h5>`
+  relatedLanguagesString += `<li>${mandarinData.MandarinfunFacts.relatedLanguages[i]}`
+
+
 }
 // letters in alphabet string
-lettersInAlphabetString = `${mandarinData.MandarinfunFacts.lettersInAlphabet}`
+lettersInAlphabetString = `<h5>Letters in the alphabet</h5><ul>${mandarinData.MandarinfunFacts.lettersInAlphabet}</ul>`
 
 
 // number of speakers string
-numberOfSpeakersString = `${mandarinData.MandarinfunFacts.numberOfSpeakers}`
+numberOfSpeakersString = `<h5>Number Of Speakers</h5><ul>${mandarinData.MandarinfunFacts.numberOfSpeakers}</ul>`
 
 // dialect info string
-dialectInfoString = `${mandarinData.MandarinfunFacts.mandrinInfo.dialectInfo}`
+dialectInfoString = `<h5>Dialect Info</h5><ul>${mandarinData.MandarinfunFacts.mandrinInfo.dialectInfo}</ul>`
 
-return relatedLanguagesString + lettersInAlphabetString + numberOfSpeakersString + dialectInfoString 
+return headerstring + relatedLanguagesString + lettersInAlphabetString + numberOfSpeakersString + dialectInfoString + headerstringtwo
 }
 
 
 
-
-// build Dialect loop
-
-
-
-
-//chinese dialects loop
-const chineseDialectsloop = function(){
-var chineseDialectsString = ""
-for(let i =0; i < mandarinData.MandarinfunFacts.mandrinInfo.chineseDialects.length; i++ ){
-   chineseDialectsString += `<li>${mandarinData.MandarinfunFacts.mandrinInfo.chineseDialects[i]}</li>`
-}
-return chineseDialectsString
-}
 
 
 
@@ -109,6 +135,14 @@ document.querySelector("#mandarin").addEventListener("click", function (){
 
 
 
+
+// test the mandarin button once you click it, it should console.log "hello, world"
+console.log(`Hello, world!`)
+
+
+
+
+
 // the start of the column
 const MandarinColumn =
 `${MandarinMainHeaderString}
@@ -119,22 +153,12 @@ const MandarinColumn =
        
         <div class="col-sm">
         ${MandarinPeopleHeaderString}
-       <ul> ${mandarinPeopleLoop()}</ul>
+       
       </div>
 
       <div class="col-sm">
       ${MandarinFunFactsHeaderString}
-        <h6>Related Languages:</h6>
-        <ul class="mandrin-list-1">${mandarinData.MandarinfunFacts.relatedLanguages}</ul>
-        <h6>Letters in Alphabet:</h6>
-        <ul class = "mandrin-list-2">${mandarinData.MandarinfunFacts.lettersInAlphabet}</ul>
-        <h6>Number Of Speakers</h6>
-        <ul class="mandrin-list-3">${mandarinData.MandarinfunFacts.numberOfSpeakers}</ul>
-        <h4>Mandarin Info:</h4>
-        <h6>Dialect Info:</h6>
-        <ul class = "mandrin-list-4">${mandarinData.MandarinfunFacts.mandrinInfo.dialectInfo}</ul>
-        <h6>Chinese Dialects:</h6>
-        <ul class = "mandrin-list-5">${chineseDialectsloop()}</ul>
+
 
       </div>
 
@@ -142,16 +166,63 @@ const MandarinColumn =
       
       <div class="col-sm">
       ${MandarinCountriesSpokenString}
-    <ul>${mandarinCountriesLoop()}</ul>
+ 
     </div>
     </div>
-    </div>`
-      
+    </div>
 
-    
+
+    <section id ="translator-section">
+<textarea name="" id="mandarinTranslatorInput" cols="30" rows="1"></textarea>
+<button id="translateMandarin">Translate</button>
+<button id="playWord">Play</button>
+<div id ="translate-mandarin-return"> </div></section>`
+
+
+// add buttons for the headers
+// this one is for the notable people button
+mandarinContainer.addEventListener("click", function(){
+  if(event.target.id === "mandarinPeopleButton"){
+    document.querySelector("#mandarin-people-list").innerHTML=mandarinPeopleLoop()
+  }
+})
+// this one is for the fun facts!
+mandarinContainer.addEventListener("click", function(){
+  if(event.target.id === "mandarinFunFacts"){
+    document.querySelector("#mandarin-fun-facts").innerHTML=MandarinFunFactsLoop() + chineseDialectsloop()
+  }
+})
+// this one is for the countries spoken!
+mandarinContainer.addEventListener("click", function(){
+  if(event.target.id === "mandarinCountriesSpoken"){
+    document.querySelector("#mandarin-spoken").innerHTML=mandarinCountriesLoop()
+  }
+})
+
+
+
+
+
+// here is the code for the translator to work
+const translateMandarinButton = document.querySelector("#language-container")
+translateMandarinButton.addEventListener("click", event =>{
+  if (event.target.id === "translateMandarin"){
+    // if statement to look for input value 
+const translateInput = document.querySelector("#mandarinTranslatorInput")
+if (mandarinData["dictionary"][`${translateInput.value}`]!= null)
+{
+
+  alert(mandarinData["dictionary"][`${translateInput.value}`])
+
+}
+    else{alert("I dunno that word, sorry")}
+}})
+
+
+
 
     mandarinHTMLcontainer.innerHTML = MandarinColumn
-
+  
 
 })
 
