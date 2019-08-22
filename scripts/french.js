@@ -101,9 +101,9 @@ langContainer.addEventListener("click",function(){
 langContainer.addEventListener("click",function(){
   const facts = document.querySelector("#french-funFacts")
   if (event.target.id==="french-funFacts-header"){
-      facts.innerHTML = `<div class="french-info"><ul>Related Languages: Latin, Spanish, Italian</ul>
-      <ul>Letters In Alphabet: 26</ul>
-      <ul>Number of Speakers: about 300 million</ul></div>` 
+      facts.innerHTML = `<div class="french-info"><h5>Related Languages:</h5> <ul>Latin, Spanish, Italian</ul>
+      <h5>Letters In Alphabet:</h5> <ul>26</ul>
+      <h5>Number of Speakers:</h5> <ul>about 300 million</ul></div>` 
   }
 })
 
@@ -143,7 +143,6 @@ langContainer.addEventListener("click",function(){
     }
 )
 // say john cena NOT WORKING 
-// const jCenaFrench = document.querySelector("frenchData.notablePeople[3]")
 langContainer.addEventListener("click",function(){
   if(event.target.classList.contains("cena")){
   speechSynthesis.speak(new SpeechSynthesisUtterance('John Cena loves you'))}
