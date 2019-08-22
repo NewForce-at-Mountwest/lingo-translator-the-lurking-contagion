@@ -71,9 +71,11 @@ hindiHeaderString = `<h1 id="hindi-main-header">Hindi</h1>`
 
 
 // write column headers
-hindiPeopleHeaderString = `<h4 id="hindi-people-header">Notable People</h4>`
-hindiFunFactsHeaderString = `<h4 id="hindi-facts-header">Fun Facts</h4>`
-hindiCountriesHeaderString = `<h4 id="hindi-countries">Countries Spoken</h4>`
+const hindiPeopleHeaderButton = `<button id="hindi-people-header">Notable People</button>
+<ul id="hindi-people-list"></ul>`
+const hindiFunFactsHeaderButton = `<button id="hindi-facts-header">Fun Facts</button><ul id="hindi-fun-list"></ul>`
+const hindiCountriesHeaderButton = `<button id="hindi-countries">Countries Spoken</button><ul id="hindi-countries-list"></ul>`
+
 
 // build notable people loop that prints object into a list
 const hindiPeopleloop = function(){
@@ -101,12 +103,25 @@ const hindicountriesloop = function(){
     return hindicountriesArray
   }
 
-// create event click for translate button 
-const translateButton = document.querySelector("#language-container")
-translateButton.addEventListener("click", event =>{
-    if (event.target.id === "translateHindi"){
+const hindiContainer = document.querySelector("#language-container")
 
-    }
+
+// add click event to people header button
+ hindiContainer.addEventListener("click", function(){
+if(event.target.id === "hindi-people-header"){
+document.querySelector("#hindi-people-list").innerHTML=hindiPeopleloop()}
+})
+
+// add click event to countriies header button
+hindiContainer.addEventListener("click", function(){
+  if(event.target.id === "hindi-countries"){
+document.querySelector("#hindi-countries-list").innerHTML=hindicountriesloop()}
+})
+  
+// add click event to fun facts button
+hindiContainer.addEventListener("click", function(){
+  if(event.target.id === "hindi-facts-header"){
+document.querySelector("#hindi-fun-list").innerHTML=hindiFunFact()}
 })
 
 
@@ -120,25 +135,50 @@ ${hindiHeaderString}
 <div id="hindi-container class="container">
   <div id="hindi-row" class="row">
     <div id= "hindi-div" class="col-sm">
-    
-    ${hindiPeopleHeaderString}  
-    <ul>${hindiPeopleloop()}</ul>
+    ${hindiPeopleHeaderButton}  
     </div>
     <div id = "hindi-div" class="col-sm">
-    ${hindiFunFactsHeaderString}
-      <ul>${hindiFunFact()}</ul>
+    ${hindiFunFactsHeaderButton}
     </div>
     <div id = "hindi-div" class="col-sm">
-    ${hindiCountriesHeaderString}  
-    <ul>${hindicountriesloop()}</ul>
+    ${hindiCountriesHeaderButton}  
     </div>
   </div>
 </div>
 
 
-<section id ="translator-section">
-<textarea name="" id="" cols="30" rows="1"></textarea>
-<button id="translateHindi">Translate</button></section>`
+<section id ="hindi-translator-section">
+<textarea name="" id="translatorInput" cols="30" rows="1"></textarea>
+<button id="translateHindi">Translate</button>
+<button id="hindiPlayButton">Play</button>
+<div id ="translate-return"> </div></section>`
+
+// create event click for translate button 
+const translateButton = document.querySelector("#language-container")
+translateButton.addEventListener("click", event =>{
+    if (event.target.id === "translateHindi"){
+// if statement to look for input value
+const translateInput = document.querySelector("#translatorInput")
+if(hindiData["dictionary"][`${translateInput.value}`]!= null)
+{
+// create output HTML string
+  // translateOutputHTML = ""
+// target output location
+  // const translateOutputBox = document.querySelector("#translate-return")
+  // output value for translation 
+//  translateOutputHTML =
+  alert(hindiData["dictionary"][`${translateInput.value}`]["hindi"])
+// translateOutputBox.innerHTML = translateOutputHTML
+}
+// else statement for null value
+     else{alert("I don't know that word")}
+    }
+})
+
+
+
+
+
 
 hindimainContainer.innerHTML= hindiColumn
 
