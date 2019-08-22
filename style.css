@@ -16,6 +16,17 @@
     font-size: 12pt;
     font-weight: normal;
 }
+#french-title{
+    text-align: center;
+    margin: 1em;
+}
+#french-translatorSection{
+    text-align: center;
+    margin: 1em;
+}
+.french-row{
+    height: 40em;
+}
 /* center header text */
 #hindi-main-header{
     text-align: center;
