@@ -74,6 +74,7 @@ frenchBodyHTML=
   <div id="french-translatorSection">
   <button id="french-translator-header">Translator</button>
   <section id="french-translator"></section>
+  <button id ="playTranslate">Play</button>
   </div>`
 
 
@@ -142,8 +143,9 @@ langContainer.addEventListener("click",function(){
       }
     }
 )
-// say john cena NOT WORKING 
+// say john cena WORKS ON CLICK
 langContainer.addEventListener("click",function(){
-  if(event.target.classList.contains("cena")){
-  speechSynthesis.speak(new SpeechSynthesisUtterance('John Cena loves you'))}
+  const cenaLoves= document.querySelector(".cena")
+  if(event.target=cenaLoves){
+  speechSynthesis.speak(new SpeechSynthesisUtterance('John Cena loves you with every large muscle fiber of his being'))}
 })
